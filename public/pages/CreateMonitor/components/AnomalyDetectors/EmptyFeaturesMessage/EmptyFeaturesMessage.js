@@ -16,7 +16,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { EuiEmptyPrompt, EuiButton, EuiText, EuiLoadingChart } from '@elastic/eui';
-import chrome from 'ui/chrome';
+import { ES_AD_PLUGIN } from '../../../../../utils/constants';
 
 const EmptyFeaturesMessage = props => (
   <div
@@ -43,9 +43,7 @@ const EmptyFeaturesMessage = props => (
         actions={[
           <EuiButton
             data-test-subj="createButton"
-            href={`${chrome.getBasePath()}/app/aes-ad-plugin#/detectors/${
-              props.detectorId
-            }/features/`}
+            href={`${ES_AD_PLUGIN}#/detectors/${props.detectorId}/features/definitions`}
             target="_blank"
           >
             Add Feature

@@ -39,6 +39,7 @@ export default class CreateMonitor extends Component {
   static defaultProps = {
     edit: false,
     monitorToEdit: null,
+    detectorId: null,
     updateMonitor: () => {},
   };
 
@@ -143,15 +144,19 @@ export default class CreateMonitor extends Component {
               <EuiSpacer />
               <ConfigureMonitor httpClient={httpClient} monitorToEdit={monitorToEdit} />
               <EuiSpacer />
-              <DefineMonitor values={values} errors={errors} httpClient={httpClient} />
-              {/* {values.searchType !== SEARCH_TYPE.AD ? (
+              <DefineMonitor
+                values={values}
+                errors={errors}
+                httpClient={httpClient}
+                detectorId={this.props.detectorId}
+              />
+              {values.searchType !== SEARCH_TYPE.AD ? (
                 <Fragment>
                   <EuiSpacer />
                   <DefineSchedule />
                 </Fragment>
-              ) : null} */}
+              ) : null}
               <EuiSpacer />
-              <DefineSchedule />
               <EuiSpacer />
               <EuiFlexGroup alignItems="center" justifyContent="flexEnd">
                 <EuiFlexItem grow={false}>

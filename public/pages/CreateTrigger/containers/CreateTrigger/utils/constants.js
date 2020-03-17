@@ -41,5 +41,5 @@ export const FORMIK_INITIAL_VALUES = {
 
 export const HITS_TOTAL_RESULTS_PATH = 'ctx.results[0].hits.total.value';
 export const AGGREGATION_RESULTS_PATH = 'ctx.results[0].aggregations.when.value';
-export const ANOMALY_GRADE_RESULT_PATH = 'ctx.results[0].anomalyGrade';
-export const ANOMALY_CONFIDENCE_RESULT_PATH = 'ctx.results[0].confidence';
+export const ANOMALY_GRADE_RESULT_PATH = 'ctx.results[0].aggregations.max_anomaly_grade.value';
+export const ANOMALY_CONFIDENCE_RESULT_PATH = 'ctx.results[0].hits.hits[0]._source.confidence';

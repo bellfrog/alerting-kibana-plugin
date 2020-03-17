@@ -16,14 +16,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { get } from 'lodash';
-import { EuiCallOut, EuiSpacer } from '@elastic/eui';
 import { FormikComboBox } from '../../../../components/FormControls';
 import { hasError, isInvalid, validateDetector } from '../../../../utils/validate';
-import { AnomaliesChart } from '../../components/AnomalyDetectors/AnomaliesChart';
-import { FeatureChart } from '../../components/AnomalyDetectors/FeatureChart/FeatureChart';
-import { EmptyFeaturesMessage } from '../../components/AnomalyDetectors/EmptyFeaturesMessage/EmptyFeaturesMessage';
 import { AppContext } from '../../../../utils/AppContext';
-import { AnomalyDetectorData } from './AnomalyDetectorData';
+import { DefineSchedule } from '../DefineSchedule';
 
 class AnomalyDetectors extends React.Component {
   static contextType = AppContext;
@@ -60,11 +56,12 @@ class AnomalyDetectors extends React.Component {
 
   render() {
     const { detectorOptions } = this.state;
-    const { values, renderEmptyMessage } = this.props;
+    const { values, detectorId } = this.props;
     //Default to empty
     let selectedOptions = [];
     if (detectorOptions.length > 0) {
-      const selectedValue = detectorOptions.find(detector => values.detectorId === detector.value);
+      const adId = values.detectorId ? values.detectorId : detectorId;
+      const selectedValue = detectorOptions.find(detector => adId === detector.value);
       if (selectedValue) {
         selectedOptions = [selectedValue];
       }
@@ -91,72 +88,17 @@ class AnomalyDetectors extends React.Component {
             onChange: (options, field, form) => {
               form.setFieldError('detectorId', undefined);
               form.setFieldValue('detectorId', get(options, '0.value', ''));
-              //TODO::Temp hack until backend fixes
-              form.setFieldValue('period', get(options, '0.interval.period'));
+              form.setFieldValue('period', {
+                interval: 2 * get(options, '0.interval.period.interval'),
+                unit: get(options, '0.interval.period.unit'),
+              });
             },
             singleSelection: { asPlaintext: true },
             isClearable: false,
             selectedOptions,
           }}
         />
-        <EuiCallOut
-          title="You can not tune detector once a monitor is created."
-          iconType="alert"
-          size="s"
-        />
-        <EuiSpacer size="s" />
-        {values.detectorId ? (
-          <AnomalyDetectorData
-            detectorId={get(selectedOptions, '0.value', '')}
-            render={anomalyData => {
-              let featureData = [];
-              if (selectedOptions[0]) {
-                featureData = get(selectedOptions, '0.features', [])
-                  .filter(feature => feature.featureEnabled)
-                  .map(feature => ({
-                    featureName: feature.featureName,
-                    data: anomalyData.anomalyResult.featureData[feature.featureId] || [],
-                  }));
-              }
-              const annotations = get(anomalyData, 'anomalyResult.anomalies', [])
-                .filter(anomaly => anomaly.anomalyGrade > 0)
-                .map(anomaly => ({
-                  coordinates: {
-                    x0: anomaly.startTime,
-                    x1: anomaly.endTime,
-                  },
-                  details: `There is an anomaly with confidence ${anomaly.confidence}`,
-                }));
-              return featureData.length > 0 ? (
-                <React.Fragment>
-                  <AnomaliesChart
-                    startDateTime={anomalyData.previewStartTime}
-                    endDateTime={anomalyData.previewEndTime}
-                    anomalies={anomalyData.anomalyResult.anomalies}
-                    isLoading={anomalyData.isLoading}
-                    displayGrade
-                    displayConfidence
-                  />
-                  <EuiSpacer size="m" />
-                  <FeatureChart
-                    annotations={annotations}
-                    startDateTime={anomalyData.previewStartTime}
-                    endDateTime={anomalyData.previewEndTime}
-                    featureData={featureData}
-                    isLoading={anomalyData.isLoading}
-                  />
-                </React.Fragment>
-              ) : (
-                <EmptyFeaturesMessage
-                  detectorId={values.detectorId}
-                  isLoading={anomalyData.isLoading}
-                />
-              );
-            }}
-          />
-        ) : (
-          renderEmptyMessage('Must select detector')
-        )}
+        <DefineSchedule isAd={true} />
       </div>
     );
   }

@@ -49,8 +49,13 @@ export default function monitorToFormik(monitor) {
     searchType,
     fieldName: fieldName ? [{ label: fieldName }] : [],
     timezone: timezone ? [{ label: timezone }] : [],
-    detectorId: isAD ? inputs[0].anomaly_detector.detector_id : undefined,
-    index: !isAD ? inputs[0].search.indices.map(index => ({ label: index })) : [{ label: '' }],
-    query: !isAD ? JSON.stringify(inputs[0].search.query, null, 4) : '',
+
+    detectorId: isAD
+      ? inputs[0].search.indices.length &&
+        // (inputs[0].search.indices[0] === '.opendistro-anomaly-results*') &&
+        inputs[0].search.query.query.bool.must[0].match.detector_id.query
+      : undefined,
+    index: inputs[0].search.indices.map(index => ({ label: index })),
+    query: JSON.stringify(inputs[0].search.query, null, 4),
   };
 }

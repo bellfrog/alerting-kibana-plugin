@@ -22,6 +22,7 @@ import ContentPanel from '../../../components/ContentPanel';
 import DashboardEmptyPrompt from '../components/DashboardEmptyPrompt';
 import DashboardControls from '../components/DashboardControls';
 import { columns } from '../utils/tableUtils';
+import { ES_AD_PLUGIN } from '../../../utils/constants';
 
 const DEFAULT_PAGE_SIZE_OPTIONS = [5, 10, 20, 50];
 const DEFAULT_QUERY_PARAMS = {
@@ -69,6 +70,7 @@ export default class Dashboard extends Component {
 
   static defaultProps = {
     monitorIds: [],
+    detectorIds: [],
   };
 
   componentDidMount() {
@@ -289,7 +291,7 @@ export default class Dashboard extends Component {
       sortField,
       totalAlerts,
     } = this.state;
-    const { monitorIds, onCreateTrigger } = this.props;
+    const { monitorIds, detectorIds, onCreateTrigger } = this.props;
 
     const pagination = {
       pageIndex: page,
@@ -317,7 +319,21 @@ export default class Dashboard extends Component {
         title="Alerts"
         titleSize={monitorIds.length ? 's' : 'l'}
         bodyStyles={{ padding: 'initial' }}
-        actions={<EuiButton onClick={this.acknowledgeAlert}>Acknowledge</EuiButton>}
+        actions={
+          detectorIds.length ? (
+            [
+              <EuiButton
+                href={`${ES_AD_PLUGIN}#/detectors/${detectorIds[0]}/features/definitions`}
+                target="_blank"
+              >
+                View detector
+              </EuiButton>,
+              <EuiButton onClick={this.acknowledgeAlert}>Acknowledge</EuiButton>,
+            ]
+          ) : (
+            <EuiButton onClick={this.acknowledgeAlert}>Acknowledge</EuiButton>
+          )
+        }
       >
         <DashboardControls
           activePage={page}

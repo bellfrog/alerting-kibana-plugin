@@ -40,13 +40,17 @@ class AnomalyDetectorData extends React.Component {
     await this.getPreviewData();
   }
   componentDidUpdate(prevProps) {
-    if (this.props.detectorId != prevProps.detectorId) {
+    if (
+      this.props.detectorId != prevProps.detectorId ||
+      this.props.startTime != prevProps.startTime ||
+      this.props.endTime != prevProps.endTime
+    ) {
       this.getPreviewData();
     }
   }
 
   async getPreviewData() {
-    const { detectorId } = this.props;
+    const { detectorId, startTime, endTime } = this.props;
     const { httpClient } = this.context;
     this.setState({
       isLoading: true,
@@ -56,7 +60,8 @@ class AnomalyDetectorData extends React.Component {
       startTime: moment()
         .subtract(5, 'd')
         .valueOf(),
-      endTime: moment().valueOf(),
+      startTime: startTime,
+      endTime: endTime,
       preview: this.props.preview,
     };
     try {
@@ -97,6 +102,10 @@ AnomalyDetectorData.propTypes = {
 };
 AnomalyDetectorData.defaultProps = {
   preview: true,
+  startTime: moment()
+    .subtract(5, 'd')
+    .valueOf(),
+  endTime: moment().valueOf(),
 };
 
 export { AnomalyDetectorData };

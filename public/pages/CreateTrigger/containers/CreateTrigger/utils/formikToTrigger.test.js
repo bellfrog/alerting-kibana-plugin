@@ -83,7 +83,8 @@ describe('formikToCondition', () => {
     expect(formikToCondition(formikValues, { search: { searchType: 'ad' } })).toEqual({
       script: {
         lang: 'painless',
-        source: 'return ctx.results[0].anomalyGrade > 0.7 && ctx.results[0].confidence > 0.7',
+        source:
+          'return ctx.results[0].aggregations.max_anomaly_grade.value != null && ctx.results[0].aggregations.max_anomaly_grade.value > 0.7 && ctx.results[0].hits.hits[0]._source.confidence > 0.7',
       },
     });
   });

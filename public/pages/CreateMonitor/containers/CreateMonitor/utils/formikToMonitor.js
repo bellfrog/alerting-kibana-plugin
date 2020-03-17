@@ -28,7 +28,7 @@ export function formikToMonitor(values) {
     type: 'monitor',
     enabled: !values.disabled,
     schedule,
-    inputs: formikToInputs(values),
+    inputs: [formikToSearch(values)],
     triggers: [],
     ui_metadata: {
       schedule: uiSchedule,
@@ -43,8 +43,10 @@ export function formikToInputs(values) {
 }
 
 export function formikToSearch(values) {
-  const query = formikToQuery(values);
-  const indices = formikToIndices(values);
+  const isAD = values.searchType === SEARCH_TYPE.AD;
+  let query = isAD ? formikToAdQuery(values) : formikToQuery(values);
+  const indices = isAD ? ['.opendistro-anomaly-results*'] : formikToIndices(values);
+
   return {
     search: {
       indices,
@@ -53,10 +55,54 @@ export function formikToSearch(values) {
   };
 }
 
+export function formikToAdQuery(values) {
+  return {
+    size: 1,
+    sort: [{ anomaly_grade: 'desc' }, { confidence: 'desc' }],
+    query: {
+      bool: {
+        must: [
+          {
+            match: {
+              detector_id: {
+                query: values.detectorId,
+              },
+            },
+          },
+        ],
+        filter: [
+          {
+            range: {
+              end_time: {
+                from: '{{period_end}}||-' + values.period.interval + 'm',
+                to: '{{period_end}}',
+                include_lower: true,
+                include_upper: true,
+              },
+            },
+          },
+        ],
+      },
+    },
+    aggregations: {
+      // max_confidence: {
+      //   max: {
+      //     field: "confidence",
+      //   },
+      // },
+      max_anomaly_grade: {
+        max: {
+          field: 'anomaly_grade',
+        },
+      },
+    },
+  };
+}
+
 export function formikToAd(values) {
   return {
     anomaly_detector: {
-      detector_id: values.detectorId,
+      detector_id: values.detectorId, // get anomaly detector id
     },
   };
 }

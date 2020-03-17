@@ -298,7 +298,7 @@ class DefineMonitor extends Component {
     };
   }
   renderAnomalyDetector() {
-    const { httpClient, values } = this.props;
+    const { httpClient, values, detectorId } = this.props;
     return {
       actions: [],
       content: (
@@ -308,6 +308,7 @@ class DefineMonitor extends Component {
               httpClient={httpClient}
               values={values}
               renderEmptyMessage={renderEmptyMessage}
+              detectorId={detectorId}
             />
           </div>
         </React.Fragment>

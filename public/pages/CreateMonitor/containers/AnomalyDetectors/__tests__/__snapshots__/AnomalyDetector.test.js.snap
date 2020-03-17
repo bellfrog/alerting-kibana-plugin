@@ -49,7 +49,7 @@ exports[`AnomalyDetectors renders 1`] = `
         "fieldName": Array [],
         "fieldRangeEnd": 0,
         "fieldRangeStart": 0,
-        "fieldValue": 0,
+        "fieldValue": "",
         "operator": "is",
       },
     }
@@ -60,21 +60,7 @@ exports[`AnomalyDetectors renders 1`] = `
   validateOnChange={true}
 >
   <AnomalyDetectors
-    renderEmptyMessage={
-      [MockFunction] {
-        "calls": Array [
-          Array [
-            "Must select detector",
-          ],
-        ],
-        "results": Array [
-          Object {
-            "type": "return",
-            "value": undefined,
-          },
-        ],
-      }
-    }
+    renderEmptyMessage={[MockFunction]}
     values={
       Object {
         "aggregationType": "count",
@@ -121,7 +107,7 @@ exports[`AnomalyDetectors renders 1`] = `
           "fieldName": Array [],
           "fieldRangeEnd": 0,
           "fieldRangeStart": 0,
-          "fieldValue": 0,
+          "fieldValue": "",
           "operator": "is",
         },
       }
@@ -225,7 +211,7 @@ exports[`AnomalyDetectors renders 1`] = `
                       "fieldName": Array [],
                       "fieldRangeEnd": 0,
                       "fieldRangeStart": 0,
-                      "fieldValue": 0,
+                      "fieldValue": "",
                       "operator": "is",
                     },
                   },
@@ -299,7 +285,7 @@ exports[`AnomalyDetectors renders 1`] = `
                       "fieldName": Array [],
                       "fieldRangeEnd": 0,
                       "fieldRangeStart": 0,
-                      "fieldValue": 0,
+                      "fieldValue": "",
                       "operator": "is",
                     },
                   },
@@ -363,7 +349,7 @@ exports[`AnomalyDetectors renders 1`] = `
                         "fieldName": Array [],
                         "fieldRangeEnd": 0,
                         "fieldRangeStart": 0,
-                        "fieldValue": 0,
+                        "fieldValue": "",
                         "operator": "is",
                       },
                     },
@@ -435,7 +421,7 @@ exports[`AnomalyDetectors renders 1`] = `
                         "fieldName": Array [],
                         "fieldRangeEnd": 0,
                         "fieldRangeStart": 0,
-                        "fieldValue": 0,
+                        "fieldValue": "",
                         "operator": "is",
                       },
                     },
@@ -542,7 +528,7 @@ exports[`AnomalyDetectors renders 1`] = `
                               "fieldName": Array [],
                               "fieldRangeEnd": 0,
                               "fieldRangeStart": 0,
-                              "fieldValue": 0,
+                              "fieldValue": "",
                               "operator": "is",
                             },
                           },
@@ -614,7 +600,7 @@ exports[`AnomalyDetectors renders 1`] = `
                               "fieldName": Array [],
                               "fieldRangeEnd": 0,
                               "fieldRangeStart": 0,
-                              "fieldValue": 0,
+                              "fieldValue": "",
                               "operator": "is",
                             },
                           },
@@ -706,7 +692,6 @@ exports[`AnomalyDetectors renders 1`] = `
                                   "type": "arrowDown",
                                 }
                               }
-                              isLoading={false}
                             >
                               <div
                                 className="euiFormControlLayout"
@@ -799,7 +784,6 @@ exports[`AnomalyDetectors renders 1`] = `
                                         "type": "arrowDown",
                                       }
                                     }
-                                    isLoading={false}
                                   >
                                     <div
                                       className="euiFormControlLayoutIcons euiFormControlLayoutIcons--right"
@@ -823,40 +807,9 @@ exports[`AnomalyDetectors renders 1`] = `
                                             className="euiFormControlLayoutCustomIcon__icon"
                                             type="arrowDown"
                                           >
-                                            <arrowDown
-                                              aria-hidden="true"
-                                              className="euiIcon euiIcon--medium euiFormControlLayoutCustomIcon__icon"
-                                              focusable="false"
-                                              height="16"
-                                              style={null}
-                                              viewBox="0 0 16 16"
-                                              width="16"
-                                              xmlns="http://www.w3.org/2000/svg"
-                                              xmlnsXlink="http://www.w3.org/1999/xlink"
-                                            >
-                                              <svg
-                                                aria-hidden="true"
-                                                className="euiIcon euiIcon--medium euiFormControlLayoutCustomIcon__icon"
-                                                focusable="false"
-                                                height="16"
-                                                style={null}
-                                                viewBox="0 0 16 16"
-                                                width="16"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                xmlnsXlink="http://www.w3.org/1999/xlink"
-                                              >
-                                                <defs>
-                                                  <path
-                                                    d="M13.069 5.157L8.384 9.768a.546.546 0 0 1-.768 0L2.93 5.158a.552.552 0 0 0-.771 0 .53.53 0 0 0 0 .759l4.684 4.61c.641.631 1.672.63 2.312 0l4.684-4.61a.53.53 0 0 0 0-.76.552.552 0 0 0-.771 0z"
-                                                    id="arrow_down-a"
-                                                  />
-                                                </defs>
-                                                <use
-                                                  fillRule="nonzero"
-                                                  xlinkHref="#arrow_down-a"
-                                                />
-                                              </svg>
-                                            </arrowDown>
+                                            <div>
+                                              EuiIconMock
+                                            </div>
                                           </EuiIcon>
                                         </button>
                                       </EuiFormControlLayoutCustomIcon>
@@ -876,66 +829,1400 @@ exports[`AnomalyDetectors renders 1`] = `
           </C>
         </FormikInputWrapper>
       </FormikComboBox>
-      <EuiCallOut
-        color="primary"
-        iconType="alert"
-        size="s"
-        title="You can not tune detector once a monitor is created."
+      <MonitorSchedule
+        isAd={true}
       >
-        <div
-          className="euiCallOut euiCallOut--primary euiCallOut--small"
+        <ContentPanel
+          bodyStyles={
+            Object {
+              "padding": "initial",
+            }
+          }
+          title="Monitor schedule"
+          titleSize="s"
         >
-          <div
-            className="euiCallOutHeader"
+          <EuiPanel
+            grow={true}
+            hasShadow={false}
+            paddingSize="m"
+            style={
+              Object {
+                "paddingLeft": "0px",
+                "paddingRight": "0px",
+              }
+            }
           >
-            <EuiIcon
-              aria-hidden="true"
-              className="euiCallOutHeader__icon"
-              size="m"
-              type="alert"
+            <div
+              className="euiPanel euiPanel--paddingMedium"
+              style={
+                Object {
+                  "paddingLeft": "0px",
+                  "paddingRight": "0px",
+                }
+              }
             >
-              <alert
-                aria-hidden="true"
-                className="euiIcon euiIcon--medium euiCallOutHeader__icon"
-                focusable="false"
-                height="16"
-                style={null}
-                viewBox="0 0 16 16"
-                width="16"
-                xmlns="http://www.w3.org/2000/svg"
+              <EuiFlexGroup
+                alignItems="center"
+                justifyContent="spaceBetween"
+                style={
+                  Object {
+                    "padding": "0px 10px",
+                  }
+                }
               >
-                <svg
-                  aria-hidden="true"
-                  className="euiIcon euiIcon--medium euiCallOutHeader__icon"
-                  focusable="false"
-                  height="16"
-                  style={null}
-                  viewBox="0 0 16 16"
-                  width="16"
-                  xmlns="http://www.w3.org/2000/svg"
+                <div
+                  className="euiFlexGroup euiFlexGroup--gutterLarge euiFlexGroup--alignItemsCenter euiFlexGroup--justifyContentSpaceBetween euiFlexGroup--directionRow euiFlexGroup--responsive"
+                  style={
+                    Object {
+                      "padding": "0px 10px",
+                    }
+                  }
                 >
-                  <path
-                    d="M7.59 10.059L7.35 5.18h1.3L8.4 10.06h-.81zm.394 1.901a.61.61 0 0 1-.448-.186.606.606 0 0 1-.186-.444c0-.174.062-.323.186-.446a.614.614 0 0 1 .448-.184c.169 0 .315.06.44.182.124.122.186.27.186.448a.6.6 0 0 1-.189.446.607.607 0 0 1-.437.184zM2 14a1 1 0 0 1-.878-1.479l6-11a1 1 0 0 1 1.756 0l6 11A1 1 0 0 1 14 14H2zm0-1h12L8 2 2 13z"
-                    fillRule="evenodd"
-                  />
-                </svg>
-              </alert>
-            </EuiIcon>
-            <span
-              className="euiCallOutHeader__title"
-            >
-              You can not tune detector once a monitor is created.
-            </span>
-          </div>
-        </div>
-      </EuiCallOut>
-      <EuiSpacer
-        size="s"
-      >
-        <div
-          className="euiSpacer euiSpacer--s"
-        />
-      </EuiSpacer>
+                  <EuiFlexItem>
+                    <div
+                      className="euiFlexItem"
+                    >
+                      <EuiTitle
+                        size="s"
+                      >
+                        <h3
+                          className="euiTitle euiTitle--small"
+                        >
+                          Monitor schedule
+                        </h3>
+                      </EuiTitle>
+                    </div>
+                  </EuiFlexItem>
+                  <EuiFlexItem
+                    grow={false}
+                  >
+                    <div
+                      className="euiFlexItem euiFlexItem--flexGrowZero"
+                    >
+                      <EuiFlexGroup
+                        alignItems="center"
+                        justifyContent="spaceBetween"
+                      >
+                        <div
+                          className="euiFlexGroup euiFlexGroup--gutterLarge euiFlexGroup--alignItemsCenter euiFlexGroup--justifyContentSpaceBetween euiFlexGroup--directionRow euiFlexGroup--responsive"
+                        >
+                          <EuiFlexItem>
+                            <div
+                              className="euiFlexItem"
+                            />
+                          </EuiFlexItem>
+                        </div>
+                      </EuiFlexGroup>
+                    </div>
+                  </EuiFlexItem>
+                </div>
+              </EuiFlexGroup>
+              <EuiHorizontalRule
+                className=""
+                margin="xs"
+              >
+                <hr
+                  className="euiHorizontalRule euiHorizontalRule--full euiHorizontalRule--marginXSmall"
+                />
+              </EuiHorizontalRule>
+              <div
+                style={
+                  Object {
+                    "padding": "initial",
+                  }
+                }
+              >
+                <Schedule
+                  isAd={true}
+                >
+                  <EuiText
+                    size="xs"
+                    style={
+                      Object {
+                        "maxWidth": "400px",
+                        "paddingLeft": "10px",
+                      }
+                    }
+                  >
+                    <div
+                      className="euiText euiText--extraSmall"
+                      style={
+                        Object {
+                          "maxWidth": "400px",
+                          "paddingLeft": "10px",
+                        }
+                      }
+                    >
+                      <p>
+                        Define how often the monitor collects data and determines how often you may receive alerts. We recommend two times of detector interval to avoid missing anomaly results due to any potential delay of processing time.
+                      </p>
+                    </div>
+                  </EuiText>
+                  <EuiSpacer
+                    size="s"
+                  >
+                    <div
+                      className="euiSpacer euiSpacer--s"
+                    />
+                  </EuiSpacer>
+                  <div
+                    style={
+                      Object {
+                        "maxWidth": "400px",
+                      }
+                    }
+                  >
+                    <Interval>
+                      <EuiFlexGroup
+                        alignItems="flexStart"
+                        gutterSize="none"
+                        style={
+                          Object {
+                            "marginTop": "5px",
+                            "paddingLeft": "10px",
+                          }
+                        }
+                      >
+                        <div
+                          className="euiFlexGroup euiFlexGroup--alignItemsFlexStart euiFlexGroup--directionRow euiFlexGroup--responsive"
+                          style={
+                            Object {
+                              "marginTop": "5px",
+                              "paddingLeft": "10px",
+                            }
+                          }
+                        >
+                          <EuiFlexItem
+                            style={
+                              Object {
+                                "margin": "0px 10px 0px 0px",
+                              }
+                            }
+                          >
+                            <div
+                              className="euiFlexItem"
+                              style={
+                                Object {
+                                  "margin": "0px 10px 0px 0px",
+                                }
+                              }
+                            >
+                              <FormikFieldNumber
+                                fieldProps={
+                                  Object {
+                                    "validate": [Function],
+                                  }
+                                }
+                                formRow={true}
+                                inputProps={
+                                  Object {
+                                    "icon": "clock",
+                                    "min": 1,
+                                  }
+                                }
+                                name="period.interval"
+                                rowProps={
+                                  Object {
+                                    "error": [Function],
+                                    "isInvalid": [Function],
+                                    "label": "Every",
+                                  }
+                                }
+                              >
+                                <FormikInputWrapper
+                                  fieldProps={
+                                    Object {
+                                      "validate": [Function],
+                                    }
+                                  }
+                                  name="period.interval"
+                                  render={[Function]}
+                                >
+                                  <C
+                                    name="period.interval"
+                                    render={[Function]}
+                                    validate={[Function]}
+                                  >
+                                    <FieldInner
+                                      formik={
+                                        Object {
+                                          "dirty": false,
+                                          "errors": Object {},
+                                          "handleBlur": [Function],
+                                          "handleChange": [Function],
+                                          "handleReset": [Function],
+                                          "handleSubmit": [Function],
+                                          "initialValues": Object {
+                                            "aggregationType": "count",
+                                            "bucketUnitOfTime": "h",
+                                            "bucketValue": 1,
+                                            "cronExpression": "0 */1 * * *",
+                                            "daily": 0,
+                                            "detectorId": "",
+                                            "disabled": false,
+                                            "fieldName": Array [],
+                                            "frequency": "interval",
+                                            "groupedOverFieldName": "bytes",
+                                            "groupedOverTop": 5,
+                                            "index": Array [],
+                                            "monthly": Object {
+                                              "day": 1,
+                                              "type": "day",
+                                            },
+                                            "name": "",
+                                            "overDocuments": "all documents",
+                                            "period": Object {
+                                              "interval": 1,
+                                              "unit": "MINUTES",
+                                            },
+                                            "query": "{
+    \\"size\\": 0,
+    \\"query\\": {
+        \\"match_all\\": {}
+    }
+}",
+                                            "searchType": "graph",
+                                            "timeField": "",
+                                            "timezone": Array [],
+                                            "weekly": Object {
+                                              "fri": false,
+                                              "mon": false,
+                                              "sat": false,
+                                              "sun": false,
+                                              "thur": false,
+                                              "tue": false,
+                                              "wed": false,
+                                            },
+                                            "where": Object {
+                                              "fieldName": Array [],
+                                              "fieldRangeEnd": 0,
+                                              "fieldRangeStart": 0,
+                                              "fieldValue": "",
+                                              "operator": "is",
+                                            },
+                                          },
+                                          "isSubmitting": false,
+                                          "isValid": false,
+                                          "isValidating": false,
+                                          "registerField": [Function],
+                                          "resetForm": [Function],
+                                          "setError": [Function],
+                                          "setErrors": [Function],
+                                          "setFieldError": [Function],
+                                          "setFieldTouched": [Function],
+                                          "setFieldValue": [Function],
+                                          "setFormikState": [Function],
+                                          "setStatus": [Function],
+                                          "setSubmitting": [Function],
+                                          "setTouched": [Function],
+                                          "setValues": [Function],
+                                          "submitCount": 0,
+                                          "submitForm": [Function],
+                                          "touched": Object {},
+                                          "unregisterField": [Function],
+                                          "validate": undefined,
+                                          "validateField": [Function],
+                                          "validateForm": [Function],
+                                          "validateOnBlur": true,
+                                          "validateOnChange": true,
+                                          "validationSchema": undefined,
+                                          "values": Object {
+                                            "aggregationType": "count",
+                                            "bucketUnitOfTime": "h",
+                                            "bucketValue": 1,
+                                            "cronExpression": "0 */1 * * *",
+                                            "daily": 0,
+                                            "detectorId": "",
+                                            "disabled": false,
+                                            "fieldName": Array [],
+                                            "frequency": "interval",
+                                            "groupedOverFieldName": "bytes",
+                                            "groupedOverTop": 5,
+                                            "index": Array [],
+                                            "monthly": Object {
+                                              "day": 1,
+                                              "type": "day",
+                                            },
+                                            "name": "",
+                                            "overDocuments": "all documents",
+                                            "period": Object {
+                                              "interval": 1,
+                                              "unit": "MINUTES",
+                                            },
+                                            "query": "{
+    \\"size\\": 0,
+    \\"query\\": {
+        \\"match_all\\": {}
+    }
+}",
+                                            "searchType": "graph",
+                                            "timeField": "",
+                                            "timezone": Array [],
+                                            "weekly": Object {
+                                              "fri": false,
+                                              "mon": false,
+                                              "sat": false,
+                                              "sun": false,
+                                              "thur": false,
+                                              "tue": false,
+                                              "wed": false,
+                                            },
+                                            "where": Object {
+                                              "fieldName": Array [],
+                                              "fieldRangeEnd": 0,
+                                              "fieldRangeStart": 0,
+                                              "fieldValue": "",
+                                              "operator": "is",
+                                            },
+                                          },
+                                        }
+                                      }
+                                      name="period.interval"
+                                      render={[Function]}
+                                      validate={[Function]}
+                                    >
+                                      <FormikFormRow
+                                        form={
+                                          Object {
+                                            "dirty": false,
+                                            "errors": Object {},
+                                            "handleBlur": [Function],
+                                            "handleChange": [Function],
+                                            "handleReset": [Function],
+                                            "handleSubmit": [Function],
+                                            "initialValues": Object {
+                                              "aggregationType": "count",
+                                              "bucketUnitOfTime": "h",
+                                              "bucketValue": 1,
+                                              "cronExpression": "0 */1 * * *",
+                                              "daily": 0,
+                                              "detectorId": "",
+                                              "disabled": false,
+                                              "fieldName": Array [],
+                                              "frequency": "interval",
+                                              "groupedOverFieldName": "bytes",
+                                              "groupedOverTop": 5,
+                                              "index": Array [],
+                                              "monthly": Object {
+                                                "day": 1,
+                                                "type": "day",
+                                              },
+                                              "name": "",
+                                              "overDocuments": "all documents",
+                                              "period": Object {
+                                                "interval": 1,
+                                                "unit": "MINUTES",
+                                              },
+                                              "query": "{
+    \\"size\\": 0,
+    \\"query\\": {
+        \\"match_all\\": {}
+    }
+}",
+                                              "searchType": "graph",
+                                              "timeField": "",
+                                              "timezone": Array [],
+                                              "weekly": Object {
+                                                "fri": false,
+                                                "mon": false,
+                                                "sat": false,
+                                                "sun": false,
+                                                "thur": false,
+                                                "tue": false,
+                                                "wed": false,
+                                              },
+                                              "where": Object {
+                                                "fieldName": Array [],
+                                                "fieldRangeEnd": 0,
+                                                "fieldRangeStart": 0,
+                                                "fieldValue": "",
+                                                "operator": "is",
+                                              },
+                                            },
+                                            "isSubmitting": false,
+                                            "isValid": false,
+                                            "isValidating": false,
+                                            "registerField": [Function],
+                                            "resetForm": [Function],
+                                            "setError": [Function],
+                                            "setErrors": [Function],
+                                            "setFieldError": [Function],
+                                            "setFieldTouched": [Function],
+                                            "setFieldValue": [Function],
+                                            "setFormikState": [Function],
+                                            "setStatus": [Function],
+                                            "setSubmitting": [Function],
+                                            "setTouched": [Function],
+                                            "setValues": [Function],
+                                            "submitCount": 0,
+                                            "submitForm": [Function],
+                                            "touched": Object {},
+                                            "unregisterField": [Function],
+                                            "validateField": [Function],
+                                            "validateForm": [Function],
+                                            "validateOnBlur": true,
+                                            "validateOnChange": true,
+                                            "values": Object {
+                                              "aggregationType": "count",
+                                              "bucketUnitOfTime": "h",
+                                              "bucketValue": 1,
+                                              "cronExpression": "0 */1 * * *",
+                                              "daily": 0,
+                                              "detectorId": "",
+                                              "disabled": false,
+                                              "fieldName": Array [],
+                                              "frequency": "interval",
+                                              "groupedOverFieldName": "bytes",
+                                              "groupedOverTop": 5,
+                                              "index": Array [],
+                                              "monthly": Object {
+                                                "day": 1,
+                                                "type": "day",
+                                              },
+                                              "name": "",
+                                              "overDocuments": "all documents",
+                                              "period": Object {
+                                                "interval": 1,
+                                                "unit": "MINUTES",
+                                              },
+                                              "query": "{
+    \\"size\\": 0,
+    \\"query\\": {
+        \\"match_all\\": {}
+    }
+}",
+                                              "searchType": "graph",
+                                              "timeField": "",
+                                              "timezone": Array [],
+                                              "weekly": Object {
+                                                "fri": false,
+                                                "mon": false,
+                                                "sat": false,
+                                                "sun": false,
+                                                "thur": false,
+                                                "tue": false,
+                                                "wed": false,
+                                              },
+                                              "where": Object {
+                                                "fieldName": Array [],
+                                                "fieldRangeEnd": 0,
+                                                "fieldRangeStart": 0,
+                                                "fieldValue": "",
+                                                "operator": "is",
+                                              },
+                                            },
+                                          }
+                                        }
+                                        name="period.interval"
+                                        rowProps={
+                                          Object {
+                                            "error": [Function],
+                                            "isInvalid": [Function],
+                                            "label": "Every",
+                                          }
+                                        }
+                                      >
+                                        <EuiFormRow
+                                          describedByIds={Array []}
+                                          fullWidth={false}
+                                          hasEmptyLabelSpace={false}
+                                          id="period.interval"
+                                          isInvalid={false}
+                                          label="Every"
+                                          labelType="label"
+                                        >
+                                          <div
+                                            className="euiFormRow"
+                                            id="period.interval-row"
+                                          >
+                                            <div>
+                                              <EuiFormLabel
+                                                aria-invalid={false}
+                                                htmlFor="period.interval"
+                                                isFocused={false}
+                                                isInvalid={false}
+                                                type="label"
+                                              >
+                                                <label
+                                                  aria-invalid={false}
+                                                  className="euiFormLabel"
+                                                  htmlFor="period.interval"
+                                                >
+                                                  Every
+                                                </label>
+                                              </EuiFormLabel>
+                                            </div>
+                                            <FieldNumber
+                                              field={
+                                                Object {
+                                                  "name": "period.interval",
+                                                  "onBlur": [Function],
+                                                  "onChange": [Function],
+                                                  "value": 1,
+                                                }
+                                              }
+                                              form={
+                                                Object {
+                                                  "dirty": false,
+                                                  "errors": Object {},
+                                                  "handleBlur": [Function],
+                                                  "handleChange": [Function],
+                                                  "handleReset": [Function],
+                                                  "handleSubmit": [Function],
+                                                  "initialValues": Object {
+                                                    "aggregationType": "count",
+                                                    "bucketUnitOfTime": "h",
+                                                    "bucketValue": 1,
+                                                    "cronExpression": "0 */1 * * *",
+                                                    "daily": 0,
+                                                    "detectorId": "",
+                                                    "disabled": false,
+                                                    "fieldName": Array [],
+                                                    "frequency": "interval",
+                                                    "groupedOverFieldName": "bytes",
+                                                    "groupedOverTop": 5,
+                                                    "index": Array [],
+                                                    "monthly": Object {
+                                                      "day": 1,
+                                                      "type": "day",
+                                                    },
+                                                    "name": "",
+                                                    "overDocuments": "all documents",
+                                                    "period": Object {
+                                                      "interval": 1,
+                                                      "unit": "MINUTES",
+                                                    },
+                                                    "query": "{
+    \\"size\\": 0,
+    \\"query\\": {
+        \\"match_all\\": {}
+    }
+}",
+                                                    "searchType": "graph",
+                                                    "timeField": "",
+                                                    "timezone": Array [],
+                                                    "weekly": Object {
+                                                      "fri": false,
+                                                      "mon": false,
+                                                      "sat": false,
+                                                      "sun": false,
+                                                      "thur": false,
+                                                      "tue": false,
+                                                      "wed": false,
+                                                    },
+                                                    "where": Object {
+                                                      "fieldName": Array [],
+                                                      "fieldRangeEnd": 0,
+                                                      "fieldRangeStart": 0,
+                                                      "fieldValue": "",
+                                                      "operator": "is",
+                                                    },
+                                                  },
+                                                  "isSubmitting": false,
+                                                  "isValid": false,
+                                                  "isValidating": false,
+                                                  "registerField": [Function],
+                                                  "resetForm": [Function],
+                                                  "setError": [Function],
+                                                  "setErrors": [Function],
+                                                  "setFieldError": [Function],
+                                                  "setFieldTouched": [Function],
+                                                  "setFieldValue": [Function],
+                                                  "setFormikState": [Function],
+                                                  "setStatus": [Function],
+                                                  "setSubmitting": [Function],
+                                                  "setTouched": [Function],
+                                                  "setValues": [Function],
+                                                  "submitCount": 0,
+                                                  "submitForm": [Function],
+                                                  "touched": Object {},
+                                                  "unregisterField": [Function],
+                                                  "validateField": [Function],
+                                                  "validateForm": [Function],
+                                                  "validateOnBlur": true,
+                                                  "validateOnChange": true,
+                                                  "values": Object {
+                                                    "aggregationType": "count",
+                                                    "bucketUnitOfTime": "h",
+                                                    "bucketValue": 1,
+                                                    "cronExpression": "0 */1 * * *",
+                                                    "daily": 0,
+                                                    "detectorId": "",
+                                                    "disabled": false,
+                                                    "fieldName": Array [],
+                                                    "frequency": "interval",
+                                                    "groupedOverFieldName": "bytes",
+                                                    "groupedOverTop": 5,
+                                                    "index": Array [],
+                                                    "monthly": Object {
+                                                      "day": 1,
+                                                      "type": "day",
+                                                    },
+                                                    "name": "",
+                                                    "overDocuments": "all documents",
+                                                    "period": Object {
+                                                      "interval": 1,
+                                                      "unit": "MINUTES",
+                                                    },
+                                                    "query": "{
+    \\"size\\": 0,
+    \\"query\\": {
+        \\"match_all\\": {}
+    }
+}",
+                                                    "searchType": "graph",
+                                                    "timeField": "",
+                                                    "timezone": Array [],
+                                                    "weekly": Object {
+                                                      "fri": false,
+                                                      "mon": false,
+                                                      "sat": false,
+                                                      "sun": false,
+                                                      "thur": false,
+                                                      "tue": false,
+                                                      "wed": false,
+                                                    },
+                                                    "where": Object {
+                                                      "fieldName": Array [],
+                                                      "fieldRangeEnd": 0,
+                                                      "fieldRangeStart": 0,
+                                                      "fieldValue": "",
+                                                      "operator": "is",
+                                                    },
+                                                  },
+                                                }
+                                              }
+                                              id="period.interval"
+                                              inputProps={
+                                                Object {
+                                                  "icon": "clock",
+                                                  "min": 1,
+                                                }
+                                              }
+                                              name="period.interval"
+                                              onBlur={[Function]}
+                                              onFocus={[Function]}
+                                            >
+                                              <EuiFieldNumber
+                                                compressed={false}
+                                                fullWidth={false}
+                                                icon="clock"
+                                                isLoading={false}
+                                                min={1}
+                                                name="period.interval"
+                                                onBlur={[Function]}
+                                                onChange={[Function]}
+                                                value={1}
+                                              >
+                                                <EuiFormControlLayout
+                                                  compressed={false}
+                                                  fullWidth={false}
+                                                  icon="clock"
+                                                  isLoading={false}
+                                                >
+                                                  <div
+                                                    className="euiFormControlLayout"
+                                                  >
+                                                    <div
+                                                      className="euiFormControlLayout__childrenWrapper"
+                                                    >
+                                                      <EuiValidatableControl>
+                                                        <input
+                                                          className="euiFieldNumber euiFieldNumber--withIcon"
+                                                          min={1}
+                                                          name="period.interval"
+                                                          onBlur={[Function]}
+                                                          onChange={[Function]}
+                                                          type="number"
+                                                          value={1}
+                                                        />
+                                                      </EuiValidatableControl>
+                                                      <EuiFormControlLayoutIcons
+                                                        icon="clock"
+                                                        isLoading={false}
+                                                      >
+                                                        <div
+                                                          className="euiFormControlLayoutIcons"
+                                                        >
+                                                          <EuiFormControlLayoutCustomIcon
+                                                            type="clock"
+                                                          >
+                                                            <span
+                                                              className="euiFormControlLayoutCustomIcon"
+                                                            >
+                                                              <EuiIcon
+                                                                aria-hidden="true"
+                                                                className="euiFormControlLayoutCustomIcon__icon"
+                                                                type="clock"
+                                                              >
+                                                                <div>
+                                                                  EuiIconMock
+                                                                </div>
+                                                              </EuiIcon>
+                                                            </span>
+                                                          </EuiFormControlLayoutCustomIcon>
+                                                        </div>
+                                                      </EuiFormControlLayoutIcons>
+                                                    </div>
+                                                  </div>
+                                                </EuiFormControlLayout>
+                                              </EuiFieldNumber>
+                                            </FieldNumber>
+                                          </div>
+                                        </EuiFormRow>
+                                      </FormikFormRow>
+                                    </FieldInner>
+                                  </C>
+                                </FormikInputWrapper>
+                              </FormikFieldNumber>
+                            </div>
+                          </EuiFlexItem>
+                          <EuiFlexItem
+                            style={
+                              Object {
+                                "margin": "0px",
+                              }
+                            }
+                          >
+                            <div
+                              className="euiFlexItem"
+                              style={
+                                Object {
+                                  "margin": "0px",
+                                }
+                              }
+                            >
+                              <FormikSelect
+                                fieldProps={
+                                  Object {
+                                    "validate": [Function],
+                                  }
+                                }
+                                formRow={true}
+                                inputProps={
+                                  Object {
+                                    "options": Array [
+                                      Object {
+                                        "text": "Minutes",
+                                        "value": "MINUTES",
+                                      },
+                                      Object {
+                                        "text": "Hours",
+                                        "value": "HOURS",
+                                      },
+                                      Object {
+                                        "text": "Days",
+                                        "value": "DAYS",
+                                      },
+                                    ],
+                                  }
+                                }
+                                name="period.unit"
+                                rowProps={
+                                  Object {
+                                    "error": [Function],
+                                    "hasEmptyLabelSpace": true,
+                                    "isInvalid": [Function],
+                                  }
+                                }
+                              >
+                                <FormikInputWrapper
+                                  fieldProps={
+                                    Object {
+                                      "validate": [Function],
+                                    }
+                                  }
+                                  name="period.unit"
+                                  render={[Function]}
+                                >
+                                  <C
+                                    name="period.unit"
+                                    render={[Function]}
+                                    validate={[Function]}
+                                  >
+                                    <FieldInner
+                                      formik={
+                                        Object {
+                                          "dirty": false,
+                                          "errors": Object {},
+                                          "handleBlur": [Function],
+                                          "handleChange": [Function],
+                                          "handleReset": [Function],
+                                          "handleSubmit": [Function],
+                                          "initialValues": Object {
+                                            "aggregationType": "count",
+                                            "bucketUnitOfTime": "h",
+                                            "bucketValue": 1,
+                                            "cronExpression": "0 */1 * * *",
+                                            "daily": 0,
+                                            "detectorId": "",
+                                            "disabled": false,
+                                            "fieldName": Array [],
+                                            "frequency": "interval",
+                                            "groupedOverFieldName": "bytes",
+                                            "groupedOverTop": 5,
+                                            "index": Array [],
+                                            "monthly": Object {
+                                              "day": 1,
+                                              "type": "day",
+                                            },
+                                            "name": "",
+                                            "overDocuments": "all documents",
+                                            "period": Object {
+                                              "interval": 1,
+                                              "unit": "MINUTES",
+                                            },
+                                            "query": "{
+    \\"size\\": 0,
+    \\"query\\": {
+        \\"match_all\\": {}
+    }
+}",
+                                            "searchType": "graph",
+                                            "timeField": "",
+                                            "timezone": Array [],
+                                            "weekly": Object {
+                                              "fri": false,
+                                              "mon": false,
+                                              "sat": false,
+                                              "sun": false,
+                                              "thur": false,
+                                              "tue": false,
+                                              "wed": false,
+                                            },
+                                            "where": Object {
+                                              "fieldName": Array [],
+                                              "fieldRangeEnd": 0,
+                                              "fieldRangeStart": 0,
+                                              "fieldValue": "",
+                                              "operator": "is",
+                                            },
+                                          },
+                                          "isSubmitting": false,
+                                          "isValid": false,
+                                          "isValidating": false,
+                                          "registerField": [Function],
+                                          "resetForm": [Function],
+                                          "setError": [Function],
+                                          "setErrors": [Function],
+                                          "setFieldError": [Function],
+                                          "setFieldTouched": [Function],
+                                          "setFieldValue": [Function],
+                                          "setFormikState": [Function],
+                                          "setStatus": [Function],
+                                          "setSubmitting": [Function],
+                                          "setTouched": [Function],
+                                          "setValues": [Function],
+                                          "submitCount": 0,
+                                          "submitForm": [Function],
+                                          "touched": Object {},
+                                          "unregisterField": [Function],
+                                          "validate": undefined,
+                                          "validateField": [Function],
+                                          "validateForm": [Function],
+                                          "validateOnBlur": true,
+                                          "validateOnChange": true,
+                                          "validationSchema": undefined,
+                                          "values": Object {
+                                            "aggregationType": "count",
+                                            "bucketUnitOfTime": "h",
+                                            "bucketValue": 1,
+                                            "cronExpression": "0 */1 * * *",
+                                            "daily": 0,
+                                            "detectorId": "",
+                                            "disabled": false,
+                                            "fieldName": Array [],
+                                            "frequency": "interval",
+                                            "groupedOverFieldName": "bytes",
+                                            "groupedOverTop": 5,
+                                            "index": Array [],
+                                            "monthly": Object {
+                                              "day": 1,
+                                              "type": "day",
+                                            },
+                                            "name": "",
+                                            "overDocuments": "all documents",
+                                            "period": Object {
+                                              "interval": 1,
+                                              "unit": "MINUTES",
+                                            },
+                                            "query": "{
+    \\"size\\": 0,
+    \\"query\\": {
+        \\"match_all\\": {}
+    }
+}",
+                                            "searchType": "graph",
+                                            "timeField": "",
+                                            "timezone": Array [],
+                                            "weekly": Object {
+                                              "fri": false,
+                                              "mon": false,
+                                              "sat": false,
+                                              "sun": false,
+                                              "thur": false,
+                                              "tue": false,
+                                              "wed": false,
+                                            },
+                                            "where": Object {
+                                              "fieldName": Array [],
+                                              "fieldRangeEnd": 0,
+                                              "fieldRangeStart": 0,
+                                              "fieldValue": "",
+                                              "operator": "is",
+                                            },
+                                          },
+                                        }
+                                      }
+                                      name="period.unit"
+                                      render={[Function]}
+                                      validate={[Function]}
+                                    >
+                                      <FormikFormRow
+                                        form={
+                                          Object {
+                                            "dirty": false,
+                                            "errors": Object {},
+                                            "handleBlur": [Function],
+                                            "handleChange": [Function],
+                                            "handleReset": [Function],
+                                            "handleSubmit": [Function],
+                                            "initialValues": Object {
+                                              "aggregationType": "count",
+                                              "bucketUnitOfTime": "h",
+                                              "bucketValue": 1,
+                                              "cronExpression": "0 */1 * * *",
+                                              "daily": 0,
+                                              "detectorId": "",
+                                              "disabled": false,
+                                              "fieldName": Array [],
+                                              "frequency": "interval",
+                                              "groupedOverFieldName": "bytes",
+                                              "groupedOverTop": 5,
+                                              "index": Array [],
+                                              "monthly": Object {
+                                                "day": 1,
+                                                "type": "day",
+                                              },
+                                              "name": "",
+                                              "overDocuments": "all documents",
+                                              "period": Object {
+                                                "interval": 1,
+                                                "unit": "MINUTES",
+                                              },
+                                              "query": "{
+    \\"size\\": 0,
+    \\"query\\": {
+        \\"match_all\\": {}
+    }
+}",
+                                              "searchType": "graph",
+                                              "timeField": "",
+                                              "timezone": Array [],
+                                              "weekly": Object {
+                                                "fri": false,
+                                                "mon": false,
+                                                "sat": false,
+                                                "sun": false,
+                                                "thur": false,
+                                                "tue": false,
+                                                "wed": false,
+                                              },
+                                              "where": Object {
+                                                "fieldName": Array [],
+                                                "fieldRangeEnd": 0,
+                                                "fieldRangeStart": 0,
+                                                "fieldValue": "",
+                                                "operator": "is",
+                                              },
+                                            },
+                                            "isSubmitting": false,
+                                            "isValid": false,
+                                            "isValidating": false,
+                                            "registerField": [Function],
+                                            "resetForm": [Function],
+                                            "setError": [Function],
+                                            "setErrors": [Function],
+                                            "setFieldError": [Function],
+                                            "setFieldTouched": [Function],
+                                            "setFieldValue": [Function],
+                                            "setFormikState": [Function],
+                                            "setStatus": [Function],
+                                            "setSubmitting": [Function],
+                                            "setTouched": [Function],
+                                            "setValues": [Function],
+                                            "submitCount": 0,
+                                            "submitForm": [Function],
+                                            "touched": Object {},
+                                            "unregisterField": [Function],
+                                            "validateField": [Function],
+                                            "validateForm": [Function],
+                                            "validateOnBlur": true,
+                                            "validateOnChange": true,
+                                            "values": Object {
+                                              "aggregationType": "count",
+                                              "bucketUnitOfTime": "h",
+                                              "bucketValue": 1,
+                                              "cronExpression": "0 */1 * * *",
+                                              "daily": 0,
+                                              "detectorId": "",
+                                              "disabled": false,
+                                              "fieldName": Array [],
+                                              "frequency": "interval",
+                                              "groupedOverFieldName": "bytes",
+                                              "groupedOverTop": 5,
+                                              "index": Array [],
+                                              "monthly": Object {
+                                                "day": 1,
+                                                "type": "day",
+                                              },
+                                              "name": "",
+                                              "overDocuments": "all documents",
+                                              "period": Object {
+                                                "interval": 1,
+                                                "unit": "MINUTES",
+                                              },
+                                              "query": "{
+    \\"size\\": 0,
+    \\"query\\": {
+        \\"match_all\\": {}
+    }
+}",
+                                              "searchType": "graph",
+                                              "timeField": "",
+                                              "timezone": Array [],
+                                              "weekly": Object {
+                                                "fri": false,
+                                                "mon": false,
+                                                "sat": false,
+                                                "sun": false,
+                                                "thur": false,
+                                                "tue": false,
+                                                "wed": false,
+                                              },
+                                              "where": Object {
+                                                "fieldName": Array [],
+                                                "fieldRangeEnd": 0,
+                                                "fieldRangeStart": 0,
+                                                "fieldValue": "",
+                                                "operator": "is",
+                                              },
+                                            },
+                                          }
+                                        }
+                                        name="period.unit"
+                                        rowProps={
+                                          Object {
+                                            "error": [Function],
+                                            "hasEmptyLabelSpace": true,
+                                            "isInvalid": [Function],
+                                          }
+                                        }
+                                      >
+                                        <EuiFormRow
+                                          describedByIds={Array []}
+                                          fullWidth={false}
+                                          hasEmptyLabelSpace={true}
+                                          id="period.unit"
+                                          isInvalid={false}
+                                          labelType="label"
+                                        >
+                                          <div
+                                            className="euiFormRow euiFormRow--hasEmptyLabelSpace"
+                                            id="period.unit-row"
+                                          >
+                                            <FieldSelect
+                                              field={
+                                                Object {
+                                                  "name": "period.unit",
+                                                  "onBlur": [Function],
+                                                  "onChange": [Function],
+                                                  "value": "MINUTES",
+                                                }
+                                              }
+                                              form={
+                                                Object {
+                                                  "dirty": false,
+                                                  "errors": Object {},
+                                                  "handleBlur": [Function],
+                                                  "handleChange": [Function],
+                                                  "handleReset": [Function],
+                                                  "handleSubmit": [Function],
+                                                  "initialValues": Object {
+                                                    "aggregationType": "count",
+                                                    "bucketUnitOfTime": "h",
+                                                    "bucketValue": 1,
+                                                    "cronExpression": "0 */1 * * *",
+                                                    "daily": 0,
+                                                    "detectorId": "",
+                                                    "disabled": false,
+                                                    "fieldName": Array [],
+                                                    "frequency": "interval",
+                                                    "groupedOverFieldName": "bytes",
+                                                    "groupedOverTop": 5,
+                                                    "index": Array [],
+                                                    "monthly": Object {
+                                                      "day": 1,
+                                                      "type": "day",
+                                                    },
+                                                    "name": "",
+                                                    "overDocuments": "all documents",
+                                                    "period": Object {
+                                                      "interval": 1,
+                                                      "unit": "MINUTES",
+                                                    },
+                                                    "query": "{
+    \\"size\\": 0,
+    \\"query\\": {
+        \\"match_all\\": {}
+    }
+}",
+                                                    "searchType": "graph",
+                                                    "timeField": "",
+                                                    "timezone": Array [],
+                                                    "weekly": Object {
+                                                      "fri": false,
+                                                      "mon": false,
+                                                      "sat": false,
+                                                      "sun": false,
+                                                      "thur": false,
+                                                      "tue": false,
+                                                      "wed": false,
+                                                    },
+                                                    "where": Object {
+                                                      "fieldName": Array [],
+                                                      "fieldRangeEnd": 0,
+                                                      "fieldRangeStart": 0,
+                                                      "fieldValue": "",
+                                                      "operator": "is",
+                                                    },
+                                                  },
+                                                  "isSubmitting": false,
+                                                  "isValid": false,
+                                                  "isValidating": false,
+                                                  "registerField": [Function],
+                                                  "resetForm": [Function],
+                                                  "setError": [Function],
+                                                  "setErrors": [Function],
+                                                  "setFieldError": [Function],
+                                                  "setFieldTouched": [Function],
+                                                  "setFieldValue": [Function],
+                                                  "setFormikState": [Function],
+                                                  "setStatus": [Function],
+                                                  "setSubmitting": [Function],
+                                                  "setTouched": [Function],
+                                                  "setValues": [Function],
+                                                  "submitCount": 0,
+                                                  "submitForm": [Function],
+                                                  "touched": Object {},
+                                                  "unregisterField": [Function],
+                                                  "validateField": [Function],
+                                                  "validateForm": [Function],
+                                                  "validateOnBlur": true,
+                                                  "validateOnChange": true,
+                                                  "values": Object {
+                                                    "aggregationType": "count",
+                                                    "bucketUnitOfTime": "h",
+                                                    "bucketValue": 1,
+                                                    "cronExpression": "0 */1 * * *",
+                                                    "daily": 0,
+                                                    "detectorId": "",
+                                                    "disabled": false,
+                                                    "fieldName": Array [],
+                                                    "frequency": "interval",
+                                                    "groupedOverFieldName": "bytes",
+                                                    "groupedOverTop": 5,
+                                                    "index": Array [],
+                                                    "monthly": Object {
+                                                      "day": 1,
+                                                      "type": "day",
+                                                    },
+                                                    "name": "",
+                                                    "overDocuments": "all documents",
+                                                    "period": Object {
+                                                      "interval": 1,
+                                                      "unit": "MINUTES",
+                                                    },
+                                                    "query": "{
+    \\"size\\": 0,
+    \\"query\\": {
+        \\"match_all\\": {}
+    }
+}",
+                                                    "searchType": "graph",
+                                                    "timeField": "",
+                                                    "timezone": Array [],
+                                                    "weekly": Object {
+                                                      "fri": false,
+                                                      "mon": false,
+                                                      "sat": false,
+                                                      "sun": false,
+                                                      "thur": false,
+                                                      "tue": false,
+                                                      "wed": false,
+                                                    },
+                                                    "where": Object {
+                                                      "fieldName": Array [],
+                                                      "fieldRangeEnd": 0,
+                                                      "fieldRangeStart": 0,
+                                                      "fieldValue": "",
+                                                      "operator": "is",
+                                                    },
+                                                  },
+                                                }
+                                              }
+                                              id="period.unit"
+                                              inputProps={
+                                                Object {
+                                                  "options": Array [
+                                                    Object {
+                                                      "text": "Minutes",
+                                                      "value": "MINUTES",
+                                                    },
+                                                    Object {
+                                                      "text": "Hours",
+                                                      "value": "HOURS",
+                                                    },
+                                                    Object {
+                                                      "text": "Days",
+                                                      "value": "DAYS",
+                                                    },
+                                                  ],
+                                                }
+                                              }
+                                              name="period.unit"
+                                              onBlur={[Function]}
+                                              onFocus={[Function]}
+                                            >
+                                              <EuiSelect
+                                                compressed={false}
+                                                fullWidth={false}
+                                                hasNoInitialSelection={false}
+                                                id="period.unit"
+                                                isLoading={false}
+                                                name="period.unit"
+                                                onBlur={[Function]}
+                                                onChange={[Function]}
+                                                options={
+                                                  Array [
+                                                    Object {
+                                                      "text": "Minutes",
+                                                      "value": "MINUTES",
+                                                    },
+                                                    Object {
+                                                      "text": "Hours",
+                                                      "value": "HOURS",
+                                                    },
+                                                    Object {
+                                                      "text": "Days",
+                                                      "value": "DAYS",
+                                                    },
+                                                  ]
+                                                }
+                                                value="MINUTES"
+                                              >
+                                                <EuiFormControlLayout
+                                                  compressed={false}
+                                                  fullWidth={false}
+                                                  icon={
+                                                    Object {
+                                                      "side": "right",
+                                                      "type": "arrowDown",
+                                                    }
+                                                  }
+                                                  isLoading={false}
+                                                >
+                                                  <div
+                                                    className="euiFormControlLayout"
+                                                  >
+                                                    <div
+                                                      className="euiFormControlLayout__childrenWrapper"
+                                                    >
+                                                      <EuiValidatableControl>
+                                                        <select
+                                                          className="euiSelect"
+                                                          id="period.unit"
+                                                          name="period.unit"
+                                                          onBlur={[Function]}
+                                                          onChange={[Function]}
+                                                          onMouseUp={[Function]}
+                                                          value="MINUTES"
+                                                        >
+                                                          <option
+                                                            key="0"
+                                                            value="MINUTES"
+                                                          >
+                                                            Minutes
+                                                          </option>
+                                                          <option
+                                                            key="1"
+                                                            value="HOURS"
+                                                          >
+                                                            Hours
+                                                          </option>
+                                                          <option
+                                                            key="2"
+                                                            value="DAYS"
+                                                          >
+                                                            Days
+                                                          </option>
+                                                        </select>
+                                                      </EuiValidatableControl>
+                                                      <EuiFormControlLayoutIcons
+                                                        icon={
+                                                          Object {
+                                                            "side": "right",
+                                                            "type": "arrowDown",
+                                                          }
+                                                        }
+                                                        isLoading={false}
+                                                      >
+                                                        <div
+                                                          className="euiFormControlLayoutIcons euiFormControlLayoutIcons--right"
+                                                        >
+                                                          <EuiFormControlLayoutCustomIcon
+                                                            type="arrowDown"
+                                                          >
+                                                            <span
+                                                              className="euiFormControlLayoutCustomIcon"
+                                                            >
+                                                              <EuiIcon
+                                                                aria-hidden="true"
+                                                                className="euiFormControlLayoutCustomIcon__icon"
+                                                                type="arrowDown"
+                                                              >
+                                                                <div>
+                                                                  EuiIconMock
+                                                                </div>
+                                                              </EuiIcon>
+                                                            </span>
+                                                          </EuiFormControlLayoutCustomIcon>
+                                                        </div>
+                                                      </EuiFormControlLayoutIcons>
+                                                    </div>
+                                                  </div>
+                                                </EuiFormControlLayout>
+                                              </EuiSelect>
+                                            </FieldSelect>
+                                          </div>
+                                        </EuiFormRow>
+                                      </FormikFormRow>
+                                    </FieldInner>
+                                  </C>
+                                </FormikInputWrapper>
+                              </FormikSelect>
+                            </div>
+                          </EuiFlexItem>
+                        </div>
+                      </EuiFlexGroup>
+                    </Interval>
+                  </div>
+                </Schedule>
+              </div>
+            </div>
+          </EuiPanel>
+        </ContentPanel>
+      </MonitorSchedule>
     </div>
   </AnomalyDetectors>
 </Formik>

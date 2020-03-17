@@ -142,7 +142,7 @@ exports[`DefineMonitor should show warning in case of Ad monitor and plugin is n
             "fieldName": Array [],
             "fieldRangeEnd": 0,
             "fieldRangeStart": 0,
-            "fieldValue": 0,
+            "fieldValue": "",
             "operator": "is",
           },
         }

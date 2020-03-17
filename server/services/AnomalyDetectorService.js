@@ -29,8 +29,13 @@ export default class DestinationsService {
     const { callWithRequest } = this.esDriver.getCluster(CLUSTER.AD_ALERTING);
     try {
       const resp = await callWithRequest(req, 'alertingAD.getDetector', { detectorId });
-      const { _source, _seq_no: seqNo, _primary_term: primaryTerm, _version: version } = resp;
-      return { ok: true, detector: _source.anomaly_detector, version, seqNo, primaryTerm };
+      const {
+        anomaly_detector,
+        _seq_no: seqNo,
+        _primary_term: primaryTerm,
+        _version: version,
+      } = resp;
+      return { ok: true, detector: anomaly_detector, version, seqNo, primaryTerm };
     } catch (err) {
       console.error('Alerting - AnomalyDetectorService - getDetector:', err);
       return { ok: false, resp: err.message };
@@ -93,7 +98,7 @@ export default class DestinationsService {
         const requestBody = {
           size: 10000,
           sort: {
-            start_time: 'asc',
+            data_start_time: 'asc',
           },
           query: {
             bool: {
@@ -105,7 +110,7 @@ export default class DestinationsService {
                 },
                 {
                   range: {
-                    start_time: {
+                    data_start_time: {
                       gte: startTime,
                       lte: endTime,
                     },
