@@ -19,7 +19,6 @@ import { get } from 'lodash';
 import { FormikComboBox } from '../../../../components/FormControls';
 import { hasError, isInvalid, validateDetector } from '../../../../utils/validate';
 import { AppContext } from '../../../../utils/AppContext';
-import { DefineSchedule } from '../DefineSchedule';
 
 class AnomalyDetectors extends React.Component {
   static contextType = AppContext;
@@ -98,7 +97,6 @@ class AnomalyDetectors extends React.Component {
             selectedOptions,
           }}
         />
-        <DefineSchedule isAd={true} />
       </div>
     );
   }

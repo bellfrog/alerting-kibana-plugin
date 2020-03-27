@@ -150,12 +150,10 @@ export default class CreateMonitor extends Component {
                 httpClient={httpClient}
                 detectorId={this.props.detectorId}
               />
-              {values.searchType !== SEARCH_TYPE.AD ? (
-                <Fragment>
-                  <EuiSpacer />
-                  <DefineSchedule />
-                </Fragment>
-              ) : null}
+              <Fragment>
+                <EuiSpacer />
+                <DefineSchedule isAd={values.searchType === SEARCH_TYPE.AD} />
+              </Fragment>
               <EuiSpacer />
               <EuiSpacer />
               <EuiFlexGroup alignItems="center" justifyContent="flexEnd">
