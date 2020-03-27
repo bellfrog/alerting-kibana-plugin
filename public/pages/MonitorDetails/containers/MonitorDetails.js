@@ -26,6 +26,7 @@ import {
   EuiSpacer,
   EuiText,
   EuiTitle,
+  EuiIcon,
 } from '@elastic/eui';
 
 import CreateMonitor from '../../CreateMonitor';
@@ -301,6 +302,7 @@ export default class MonitorDetails extends Component {
                     target="_blank"
                   >
                     {detector.name}
+                    <EuiIcon size="s" type="popout" />
                   </EuiLink>
                 </EuiText>
               </EuiFlexItem>
