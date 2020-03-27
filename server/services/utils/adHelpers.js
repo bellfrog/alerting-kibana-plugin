@@ -35,13 +35,13 @@ export const anomalyResultMapper = anomalyResults => {
         rest.anomalyGrade != null && rest.anomalyGrade > 0
           ? Number.parseFloat(rest.confidence).toFixed(3)
           : 0,
-      plotTime: rest.startTime + Math.floor((rest.endTime - rest.startTime) / 2),
+      plotTime: rest.dataStartTime + Math.floor((rest.dataEndTime - rest.dataStartTime) / 2),
     });
     featureData.forEach(feature => {
       resultData.featureData[feature.featureId].push({
-        startTime: rest.startTime,
-        endTime: rest.endTime,
-        plotTime: rest.startTime + Math.floor((rest.endTime - rest.startTime) / 2),
+        startTime: rest.dataStartTime,
+        endTime: rest.dataEndTime,
+        plotTime: rest.dataStartTime + Math.floor((rest.dataEndTime - rest.dataStartTime) / 2),
         data: feature.data,
       });
     });
