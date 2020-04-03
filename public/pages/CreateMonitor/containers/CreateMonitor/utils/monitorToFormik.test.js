@@ -140,8 +140,14 @@ describe('monitorToFormik', () => {
                         },
                       },
                     },
+                    {
+                      term: {
+                        detector_id: {
+                          value: 'zIqG0nABwoJjo1UZKHnL',
+                        },
+                      },
+                    },
                   ],
-                  must: [{ match: { detector_id: { query: 'zIqG0nABwoJjo1UZKHnL' } } }],
                 },
               },
               size: 1,

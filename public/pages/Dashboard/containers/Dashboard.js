@@ -16,7 +16,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import queryString from 'query-string';
-import { EuiBasicTable, EuiButton, EuiHorizontalRule, EuiIcon } from '@elastic/eui';
+import { EuiBasicTable, EuiButton, EuiHorizontalRule, EuiIcon, EuiButtonEmpty } from '@elastic/eui';
 
 import ContentPanel from '../../../components/ContentPanel';
 import DashboardEmptyPrompt from '../components/DashboardEmptyPrompt';
@@ -322,13 +322,9 @@ export default class Dashboard extends Component {
         actions={
           detectorIds.length ? (
             [
-              <EuiButton
-                href={`${ES_AD_PLUGIN}#/detectors/${detectorIds[0]}/features/definitions`}
-                target="_blank"
-              >
-                View detector
-                <EuiIcon size="s" type="popout" />
-              </EuiButton>,
+              <EuiButtonEmpty href={`${ES_AD_PLUGIN}#/detectors/${detectorIds[0]}`} target="_blank">
+                View detector <EuiIcon type="popout" />
+              </EuiButtonEmpty>,
               <EuiButton onClick={this.acknowledgeAlert}>Acknowledge</EuiButton>,
             ]
           ) : (

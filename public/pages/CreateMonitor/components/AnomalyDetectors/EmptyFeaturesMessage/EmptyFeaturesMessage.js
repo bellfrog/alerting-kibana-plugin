@@ -43,7 +43,7 @@ const EmptyFeaturesMessage = props => (
         actions={[
           <EuiButton
             data-test-subj="createButton"
-            href={`${ES_AD_PLUGIN}#/detectors/${props.detectorId}/features/definitions`}
+            href={`${ES_AD_PLUGIN}#/detectors/${props.detectorId}/features`}
             target="_blank"
           >
             Add Feature

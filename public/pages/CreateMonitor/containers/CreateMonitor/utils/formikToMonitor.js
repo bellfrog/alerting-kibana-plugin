@@ -61,23 +61,21 @@ export function formikToAdQuery(values) {
     sort: [{ anomaly_grade: 'desc' }, { confidence: 'desc' }],
     query: {
       bool: {
-        must: [
-          {
-            match: {
-              detector_id: {
-                query: values.detectorId,
-              },
-            },
-          },
-        ],
         filter: [
           {
             range: {
-              end_time: {
+              data_end_time: {
                 from: '{{period_end}}||-' + values.period.interval + 'm',
                 to: '{{period_end}}',
                 include_lower: true,
                 include_upper: true,
+              },
+            },
+          },
+          {
+            term: {
+              detector_id: {
+                value: values.detectorId,
               },
             },
           },
@@ -102,7 +100,7 @@ export function formikToAdQuery(values) {
 export function formikToAd(values) {
   return {
     anomaly_detector: {
-      detector_id: values.detectorId, // get anomaly detector id
+      detector_id: values.detectorId,
     },
   };
 }

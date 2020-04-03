@@ -58,5 +58,6 @@ export const AD_PLUGIN_ID = 'aes-ad-plugin';
 
 export const ES_AD_PLUGIN = 'opendistro-anomaly-detection';
 
-export const MONITOR_INPUT_DETECTOR_ID =
-  'inputs.0.search.query.query.bool.must[0].match.detector_id.query';
+export const INPUTS_DETECTOR_ID = '0.search.query.query.bool.filter[1].term.detector_id.value';
+
+export const MONITOR_INPUT_DETECTOR_ID = `inputs.${INPUTS_DETECTOR_ID}`;

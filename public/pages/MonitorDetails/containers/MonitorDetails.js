@@ -233,11 +233,7 @@ export default class MonitorDetails extends Component {
     const updatingMonitor = action === MONITOR_ACTIONS.UPDATE_MONITOR;
     const creatingTrigger = action === TRIGGER_ACTIONS.CREATE_TRIGGER;
     const updatingTrigger = action === TRIGGER_ACTIONS.UPDATE_TRIGGER && triggerToEdit;
-    const detectorId = get(
-      monitor,
-      'inputs.0.search.query.query.bool.must[0].match.detector_id.query',
-      undefined
-    );
+    const detectorId = get(monitor, MONITOR_INPUT_DETECTOR_ID, undefined);
     if (loading) {
       return (
         <EuiFlexGroup justifyContent="center" alignItems="center" style={{ marginTop: '100px' }}>
@@ -297,7 +293,7 @@ export default class MonitorDetails extends Component {
                 <EuiText size="s">
                   Created from detector{' '}
                   <EuiLink
-                    href={`${ES_AD_PLUGIN}#/detectors/${detectorId}/features/definitions`}
+                    href={`${ES_AD_PLUGIN}#/detectors/${detectorId}`}
                     external="true"
                     target="_blank"
                   >
