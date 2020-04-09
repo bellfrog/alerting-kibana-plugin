@@ -5,5 +5,9 @@ export const initializeFromQueryParams = queryParams => {
     searchType: queryParams.searchType || undefined,
     name: queryParams.name ? `${queryParams.name}-Monitor` : undefined,
     detectorId: queryParams.adId || undefined,
+    period:
+      queryParams.interval && queryParams.unit
+        ? { interval: parseInt(queryParams.interval), unit: queryParams.unit }
+        : undefined,
   };
 };
