@@ -14,6 +14,7 @@
  */
 
 export const anomalyResultMapper = anomalyResults => {
+  console.log('aaaaaa', JSON.stringify(anomalyResults, null, 4));
   let resultData = {
     anomalies: [],
     featureData: {},
