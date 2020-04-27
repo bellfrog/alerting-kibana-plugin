@@ -314,7 +314,7 @@ export default class Dashboard extends Component {
         selectable ? undefined : 'Only Active Alerts are Acknowledgeable',
     };
 
-    const getActions = () => {
+    const actions = () => {
       const actions = [<EuiButton onClick={this.acknowledgeAlert}>Acknowledge</EuiButton>];
       if (detectorIds.length) {
         actions.unshift(
@@ -331,7 +331,7 @@ export default class Dashboard extends Component {
         title="Alerts"
         titleSize={monitorIds.length ? 's' : 'l'}
         bodyStyles={{ padding: 'initial' }}
-        actions={getActions()}
+        actions={actions()}
       >
         <DashboardControls
           activePage={page}
